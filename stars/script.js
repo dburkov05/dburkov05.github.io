@@ -19,6 +19,13 @@ var timer;
 var G = 100; // задаём константу методом подбора
 var dt = 0.02; // шаг вычисления
 
+var addons = {};
+/*addon = {
+'enabled':'true',
+'main':function(){},
+'draw':function(){},
+'step':function(){}
+}*/
 function main(){
     // создаём холст на весь экран и прикрепляем его на страницу
 	canvas = document.createElement('canvas');
@@ -41,6 +48,7 @@ function main(){
     
     // запуск таймер, ваш кэп ;-)
     timer = setInterval(Step, dt * 1000);
+	
 }
 
 function Star(){
@@ -65,11 +73,18 @@ function Step(){
             if(i == j) continue;
             dx = star[j].x - star[i].x;
             dy = star[j].y - star[i].y;
-            
+			
 			if((abs(dx)<1)&&(abs(dy)<1)){
+				
+				if(star[j].m > star[i].m){
 				star[j].m = star[i].m+star[j].m;
-				star.splice(i,1);
+				star.splice(i,1);	
 				break;
+				}else{
+				star[i].m = star[i].m+star[j].m;
+				star.splice(j,1);
+				continue;				
+				}
 			}
 			
             r = dx * dx + dy * dy;// тут R^2
@@ -93,10 +108,10 @@ function Step(){
     // выводим на экран
     Draw();
 }
-
+var screencolor = 'rgb(0,0,0)'; 
 function Draw(){
     // очищение экрана
-    context.fillStyle = "#000000";
+    context.fillStyle = screencolor;
     context.fillRect(0, 0, WIDTH, HEIGHT);
     
     // рисование кругов
