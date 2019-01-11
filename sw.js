@@ -9,3 +9,6 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     console.log('Происходит запрос на сервер');
 });
+self.addEventListener('message', function (event) {
+    event.source.postMessage('response');
+});
