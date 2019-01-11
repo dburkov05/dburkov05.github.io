@@ -1,5 +1,6 @@
 ﻿self.addEventListener('install', (event) => {
     console.log('Установлен');
+	self.clients.claim()
 });
 
 self.addEventListener('activate', (event) => {
