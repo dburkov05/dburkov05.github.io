@@ -1,6 +1,5 @@
 ﻿self.addEventListener('install', (event) => {
     console.log('Установлен');
-	self.clients.claim()
 });
 
 self.addEventListener('activate', (event) => {
@@ -10,6 +9,10 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     console.log('Происходит запрос на сервер');
 });
-self.addEventListener('message', function (event) {
-    event.source.postMessage('response');
+self.addEventListener('message', function(event){
+    //Message received from client
+    console.log(event.data);
+    //Send response to client using the port that was sent with the message
+    event.ports[0].postMessage("world");
 });
+self.clients.claim()
