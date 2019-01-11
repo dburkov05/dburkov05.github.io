@@ -1,7 +1,12 @@
-﻿navigator.serviceWorker.getRegistrations().then(function(registrations) {
+﻿var reg = false;
+navigator.serviceWorker.getRegistrations().then(function(registrations) {
  for(let registration of registrations) {
-  registration.unregister()
+  var url = registration.active.scriptURL
+  if(url == 'https://dburkov05.github.io/sw.js'){
+	  reg = true
+  }
 } })
+if(!reg){
 // при регистрации указываем на js-файл с кодом serviceWorker’а
 // получаем Promise объект
 navigator.serviceWorker.register(
@@ -14,3 +19,5 @@ navigator.serviceWorker.register(
 }).catch(function(err) {
     throw new Error('ServiceWorker error: ' + err);
 });
+}
+
