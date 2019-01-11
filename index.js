@@ -1,4 +1,8 @@
-﻿// при регистрации указываем на js-файл с кодом serviceWorker’а
+﻿navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ for(let registration of registrations) {
+  registration.unregister()
+} })
+// при регистрации указываем на js-файл с кодом serviceWorker’а
 // получаем Promise объект
 navigator.serviceWorker.register(
    '/sw.js'
