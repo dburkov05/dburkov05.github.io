@@ -14,4 +14,5 @@ self.addEventListener('message', function(event){
     //Message received from client
     console.log(event.data);
     //Send response to client using the port that was sent with the message
+	console.log(event);
 });
