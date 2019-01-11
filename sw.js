@@ -4,6 +4,7 @@
 
 self.addEventListener('activate', (event) => {
     console.log('Активирован');
+	event.waitUntil(clients.claim());
 });
 
 self.addEventListener('fetch', (event) => {
@@ -15,4 +16,3 @@ self.addEventListener('message', function(event){
     //Send response to client using the port that was sent with the message
     event.ports[0].postMessage("world");
 });
-self.clients.claim()
