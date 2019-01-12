@@ -23,6 +23,7 @@ function del(){
 
 var messageChannel = new MessageChannel();
 messageChannel.port1.addEventListener('message', replyHandler);
+var worker = navigator.serviceWorker.controller;
 worker.postMessage('Test', [messageChannel.port2]);
 function replyHandler (event) {
   console.log(event.data); // this comes from the ServiceWorker
