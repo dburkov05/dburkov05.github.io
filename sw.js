@@ -16,5 +16,5 @@ self.addEventListener('message', function(event){
     console.log(event.data);
     //Send response to client using the port that was sent with the message
 	console.log(event);
-	event.ports[0].postMessage("SW Says Hello back!");
+	event.ports[0].postMessage('Pong')
 });
