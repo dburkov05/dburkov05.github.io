@@ -9,6 +9,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
     console.log('Происходит запрос на сервер');
+	console.log(event);
 	//new Response('Hello from your friendly neighbourhood service worker!');
 });
 self.addEventListener('message', function(event){
