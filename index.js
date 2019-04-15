@@ -17,7 +17,7 @@ function del(){
 	navigator.serviceWorker.getRegistrations().then(function(registrations) {
  for(let registration of registrations) {
   registration.unregister()
-  onsole.log('Сервис-Воркер Удалён')
+  console.log('Сервис-Воркер Удалён')
 } })
 }
 const messageChannel = new MessageChannel()
