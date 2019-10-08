@@ -2,7 +2,21 @@
 <html>
     <head>
         <title>aint to TXlib</title>
-        <script type="text/javascript" src="script.js"></script>
+        <script type='text/javascript' src='script.js'></script>
     </head>
-    <body></body>
+    <body>
+	<div id='toolbar' style='position:absolute;top:10px;left:800px;'>
+	<span>selected: <span id='team'>no</span></span>
+	<div id='teams'>
+	</div>
+	<input value='new_polygon' onclick='addTeam(document.getElementById("color").value);' type='button'>
+	<input id='color' value='255,255,255'>
+	<input value='save_color' onclick='{teams[team] = document.getElementById("color").value;Draw();}' type='button'>
+	<input value='get_color' onclick='{getcolor=true;}' type='button'>
+	<input value='Draw' onclick='Draw()' type='button'>
+	<input value='cancel_point' onclick='{cancel_point();Draw();}' type='button'>
+	<input value='save_to_cpp' onclick='toCpp()' type='button'>
+	<div style='visibility: hidden;'><img id='img1' src='test1.jpg' height='0px' width='0px'></div>
+	</div>
+	</body>
 </html>

@@ -7,11 +7,10 @@ function onmouseup(/*MouseEvent*/ e){
 	if(e.clientX>WIDTH)return
 	if(e.clientY>HEIGHT)return
     var aPoint = new Point();
-    aPoint.x = e.clientX;
-    aPoint.y = e.clientY;
+    aPoint.x = e.clientX-5;
+    aPoint.y = e.clientY-5;
 	aPoint.team = team;
     points.push(aPoint);
-    document.title = points.length;
 	Draw();
 }
 
@@ -20,12 +19,10 @@ var points = new Array(); // в этом массиве будут хранит�
 var HEIGHT = 500; 
 var WIDTH = 800;
 var timer;
-var isfill = false;
+var isfill = true;
 var team = 0;
-var teams = [
-	{color:'255,0,0'},
-	{color:'0,255,0'}
-	];
+var teams = [];
+var img;
 function main(){
     // создаём холст на весь экран и прикрепляем его на страницу
 	canvas = document.createElement('canvas');
@@ -37,6 +34,17 @@ function main(){
 	canvas.style.left = '0';
 	document.body.appendChild(canvas);
     ctx = canvas.getContext("2d");
+	
+	canvas2 = document.createElement('canvas');
+	canvas2.height = HEIGHT;
+	canvas2.width = WIDTH;
+	canvas2.id = 'canvas2';
+	canvas.style.position = 'relative';
+	canvas.style.top = '0';
+	canvas.style.left = '0';
+	document.body.appendChild(canvas2);
+    ctx2 = canvas2.getContext("2d");
+	img = document.getElementById('img1');
 	Draw();
 }
 
@@ -45,17 +53,10 @@ function Point(){
     this.y = 0;
 	this.team = 0;
 }
-function abs(a){
-	if(a<0)return -a;
-	return a;
-}
 var screencolor = 'rgb(200,200,200)';
+var strokecolor = '0,0,0';
 var r = 1; 
-function Draw(){
-    // очищение экрана
-    ctx.fillStyle = screencolor;
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
-	
+function Draw_past(ctx){
 	for(var i = 0; i < points.length; i++){
 		ctx.fillStyle = 'rgb('+teams[points[i].team]+')';
         ctx.beginPath();
@@ -70,21 +71,35 @@ function Draw(){
         ctx.closePath();
         ctx.fill();
     }
-	
     for(var j=0;j<teams.length;j++){
 		var team = teams[j];
 		var count = 0;
-		ctx.fillStyle = 'rgb('+team.color+')';
+		ctx.fillStyle = 'rgb('+team+')';
+		ctx.strokeStyle = 'rgb('+strokecolor+')';
 		ctx.beginPath();
 		for(var i = 0; i < points.length; i++){
 			if(points[i].team != j)continue
 			count++;
+			if(count==1){
+				ctx.moveTo(points[i].x,points[i].y);
+				}else{
 			ctx.lineTo(points[i].x,points[i].y);
+}
 		}
 		ctx.closePath();
 		ctx.stroke();
 		if(isfill)ctx.fill();
 	}
+}
+function Draw(){
+	document.title = points.length;
+    // очищение экрана
+    ctx.fillStyle = screencolor;
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+	
+	ctx.drawImage(img,0,0);
+	Draw_past(ctx);
+	
 }
 function inteam(key){
 	var out = [];
@@ -111,7 +126,7 @@ function toCppPolygon(points){
 	return out;
 }
 function toCpp(){
-	var out = 'int main(){txCreateWindow(800, 500);txClear();txSetColor(TX_BLACK);';
+	var out = 'int main(){txCreateWindow('+WIDTH+', '+HEIGHT+');txClear();txSetColor(RGB('+strokecolor+'));';
 	for(var i=0;i<teams.length;i++){
 		out+=toCppPolygon(inteam(i));
 	}
@@ -120,8 +135,14 @@ function toCpp(){
 	
 }
 function addTeam(color){
-	teams.push({color:color});
+	teams.push(color);
+	var out = "<input value='"+(teams.length-1)+"' onclick='{team = parseInt(this.value);document.getElementById("+'"team"'+").innerHTML = team;}' type='button'>";
+	document.getElementById('teams').innerHTML +=out;
 }
-function help(){
-	console.log();
+function cancel_point(){
+	var out = [];
+	for(var i=0;i<points.length-1;i++){
+		out.push(points[i]);
+	}
+	points = out;
 }
