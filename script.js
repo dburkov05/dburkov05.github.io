@@ -7,8 +7,8 @@ function onmouseup(/*MouseEvent*/ e){
 	if(e.clientX>WIDTH)return
 	if(e.clientY>HEIGHT)return
     var aPoint = new Point();
-    aPoint.x = e.clientX-5;
-    aPoint.y = e.clientY-5;
+    aPoint.x = e.clientX;
+    aPoint.y = e.clientY;
 	aPoint.team = team;
     points.push(aPoint);
 	Draw();
@@ -16,14 +16,16 @@ function onmouseup(/*MouseEvent*/ e){
 
 var points = new Array(); // в этом массиве будут храниться все объекты
 
-var HEIGHT = 500; 
-var WIDTH = 800;
+var HEIGHT = 1000; 
+var WIDTH = 1200;
 var timer;
 var isfill = true;
 var team = 0;
 var teams = [];
+var arcs = [];
 var img;
 function main(){
+	document.getElementsByTagName('body')[0].style='background-color:orange;';
     // создаём холст на весь экран и прикрепляем его на страницу
 	canvas = document.createElement('canvas');
 	canvas.height = HEIGHT;
@@ -35,15 +37,8 @@ function main(){
 	document.body.appendChild(canvas);
     ctx = canvas.getContext("2d");
 	
-	canvas2 = document.createElement('canvas');
-	canvas2.height = HEIGHT;
-	canvas2.width = WIDTH;
-	canvas2.id = 'canvas2';
-	canvas.style.position = 'relative';
-	canvas.style.top = '0';
-	canvas.style.left = '0';
-	document.body.appendChild(canvas2);
-    ctx2 = canvas2.getContext("2d");
+	document.getElementById('toolbar').style = 'position:absolute;top:'+HEIGHT+'px;';
+	
 	img = document.getElementById('img1');
 	Draw();
 }
@@ -111,7 +106,7 @@ function inteam(key){
 }
 function toCppPolygon(points){
 	number = points[0].team;
-	color = teams[points[0].team].color;
+	color = teams[points[0].team];
 	data = '';
 	for(var i=0;i<points.length;i++){
 		if(i!=0)data+=',';
@@ -120,18 +115,18 @@ function toCppPolygon(points){
 	count = points.length;
 	//color,number(team),points,count(points)
 	var out = '';
-	out+='txSetFillColor(RGB('+color+'));';
-	out+='POINT cord'+number+'['+count+']={'+data+'};';
-	out+='txPolygon(cord'+number+','+count+');';
+	out+='txSetFillColor(RGB('+color+'));\n';
+	out+='POINT cord'+number+'['+count+']={'+data+'};\n';
+	out+='txPolygon(cord'+number+','+count+');\n';
 	return out;
 }
 function toCpp(){
-	var out = 'int main(){txCreateWindow('+WIDTH+', '+HEIGHT+');txClear();txSetColor(RGB('+strokecolor+'));';
+	var out = '#include "TXLib.h"\nint main(){\ntxCreateWindow('+WIDTH+', '+HEIGHT+');\ntxClear();\ntxSetColor(RGB('+strokecolor+'));';
 	for(var i=0;i<teams.length;i++){
-		out+=toCppPolygon(inteam(i));
+		out+='\n'+toCppPolygon(inteam(i));
 	}
 	out+='return 0;}';
-	prompt("Paste to programm ", out);
+	console.log(out);
 	
 }
 function addTeam(color){
