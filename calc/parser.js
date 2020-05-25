@@ -1,3 +1,11 @@
+var funcs = {
+	"+":[function(a,b){return a+b;},0],
+	"-":[function(a,b){return a-b;},0],
+	"*":[function(a,b){return a*b;},1],
+	"/":[function(a,b){return a/b;},1],
+	"^":[function(a,b){return a**b;},2],
+	"√":[function(a,b){return a ** (1/b);},2]
+};
 function calc(input){
 function parser_part_1(str){
 	var out = [];
@@ -85,14 +93,6 @@ function end_part(input){
 	}
 	return end_calc(temp);
 }
-
-var funcs = {
-	"+":[function(a,b){return a+b;},0],
-	"-":[function(a,b){return a-b;},0],
-	"*":[function(a,b){return a*b;},1],
-	"/":[function(a,b){return a/b;},1],
-	"^":[function(a,b){return a**b;},2]
-};
 function swap(arr,pos1,pos2,insert){
 		var temp = [];
 		for(var i=0;i<arr.length;i++){
