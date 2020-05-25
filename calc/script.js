@@ -2,7 +2,7 @@ var keypads = document.getElementsByClassName("keypad");
 
 var vars = document.getElementById("vars");
 vars.innerHTML = "<caption>Переменные</caption><tr><th>id</th><th>value</th></tr>";//<tr><td>0</td><td>12345678</td></tr>
-var keys = ["0","1","2","3","4","5","6","7","8","9","(",")","+","-","*","/","^"];
+var keys = ["0","1","2","3","4","5","6","7","8","9","(",")","+","-","*","/","^","√"];
 function press_key(){
 	document.getElementsByClassName("input")[0].value=document.getElementsByClassName("input")[0].value+this.value;
 }
