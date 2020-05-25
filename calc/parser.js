@@ -4,7 +4,7 @@ var funcs = {
 	"*":[function(a,b){return a*b;},1],
 	"/":[function(a,b){return a/b;},1],
 	"^":[function(a,b){return a**b;},2],
-	"√":[function(a,b){return a ** (1/b);},2]
+	"√":[function(a,b){return b ** (1/a);},2]
 };
 function calc(input){
 function parser_part_1(str){
