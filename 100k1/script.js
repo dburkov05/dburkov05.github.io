@@ -91,3 +91,12 @@ function end(){
 	document.getElementById("window").innerHTML='<div id="end"><span class="shiny"><span class="inner-shiny">Конец!<br>У вас '+score+' Очков!</span></span><br><br><br><a href="" class="button1">Ещё раз</a></div>';
 }
 ask_question(all_answs[ask_index][0],all_answs[ask_index][1]);
+
+/* all_answs.push([
+"Вопрос",
+{
+	"Ответ 1":99999,
+	"Ответ 2":-99999,
+	"Ответ 3":666,
+	"Ответ 4":616
+}]); */
