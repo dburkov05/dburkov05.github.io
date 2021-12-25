@@ -1,0 +1,755 @@
+<html>
+<head>
+	<title>Речевая карта</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width; initial-scale=1">
+</head>
+<body>
+<form id="test">
+	<table border=1>
+		<thead>
+			<tr>
+				<th colspan="2">Речевая карта</th>
+			<tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Ф.И. ребенка</td>
+				<td><input name="name"></td>
+			</tr>
+			<tr>
+				<td>Дата рождения</td>
+				<td><input type="date" name="date"></td>
+			</tr>
+			<tr>
+				<td>Речевая среда</td>
+				<td><textarea name="speech_environment"></textarea></td>
+			</tr>
+			<tr>
+				<td>Заключение специалистов</td>
+				<td><textarea name="expert_opinion"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<span>Краткий анамез</span>
+				</td>
+				<td>
+					<span class="bold">внутриутробное развитие</span>
+					<textarea name="anamnesis_1" placeholder=""></textarea>
+					<span class="bold">роды</span>
+					<textarea name="anamnesis_2" placeholder=""></textarea>
+					<span class="bold">раннее физическое развитие</span>
+					<textarea name="anamnesis_3" placeholder=""></textarea>
+					<span class="bold">раннее речевое развитие</span>
+					<textarea name="anamnesis_4" placeholder=""></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Состояние общей и мелкой моторики</td>
+				<td><textarea name="status_of_motor_skills"></textarea></td>
+			</tr>
+			<tr>
+				<td>
+					<span>Состояние артикулярного аппарата</span>
+				</td>
+				<td>
+					<table class="inputs_all_width">
+						<tbody>
+							<tr>
+								<td>
+									<span class="bold">зубы</span>
+								</td>
+								<td>
+									<input name="state_of_articular_1" placeholder="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">язык</span>
+								</td>
+								<td>
+									<input name="state_of_articular_2" placeholder="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">прикус</span>
+								</td>
+								<td>
+									<input name="state_of_articular_3" placeholder="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="bold">уздечка</span>
+								</td>
+								<td>
+									<input name="state_of_articular_4" placeholder="">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Темп речи</span>
+				</td>
+				<td>
+					<input type="radio" name="pace_of_speech" value="1">норма
+					<input type="radio" name="pace_of_speech" value="2">быстрый
+					<input type="radio" name="pace_of_speech" value="3">медленный
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Плавность речи</span>
+				</td>
+				<td>
+					<input type="radio" name="smoothness_of_speech" value="1">норма
+					<input type="radio" name="smoothness_of_speech" value="2">с запинками
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Голос</span>
+				</td>
+				<td>
+					<input type="radio" name="voice" value="1">норма
+					<input type="radio" name="voice" value="2">тихий
+					<input type="radio" name="voice" value="3">громкий
+					<input type="radio" name="voice" value="4">гнусавый
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Дыхание</span>
+				</td>
+				<td>
+					<input type="radio" name="breath" value="1">норма
+					<input type="radio" name="breath" value="2">ключичное
+					<input type="radio" name="breath" value="3">затрудненное
+				</td>
+			</tr>
+			<tr>
+				<td>Звукопроизношение</td>
+				<td>
+					<table>
+						<tbody>
+							<tr>
+								<td><span>гласные:</span></td>
+								<td><input name="vowels"></td>
+								<td><span>глухие:</span></td>
+								<td>
+									<input type="radio" name="deaf" value="1">норма
+									<input type="radio" name="deaf" value="2">озвончает
+								</td>
+							</tr>
+							<tr>
+								<td><span>cвистящие:</span></td>
+								<td><input name="whistling"></td>
+								<td><span>звонкие:</span></td>
+								<td>
+									<input type="radio" name="sonorous" value="1">норма
+									<input type="radio" name="sonorous" value="2">оглушает
+								</td>
+							</tr>
+							<tr>
+								<td><span>шипящие:</span></td>
+								<td><input name="hissing"></td>
+								<td><span>твердые:</span></td>
+								<td>
+									<input type="radio" name="solid" value="1">норма
+									<input type="radio" name="solid" value="2">смягчает
+								</td>
+							</tr>
+							<tr>
+								<td><span>соноры:</span></td>
+								<td><input name="sonora"></td>
+								<td><span>мягкие:</span></td>
+								<td>
+									<input type="radio" name="soft" value="1">норма
+									<input type="radio" name="soft" value="2">произн. твердо
+								</td>
+							</tr>
+							<tr>
+								<td><span>в потоке речи:</span></td>
+								<td><input class="all_width" name="in_speech_stream"></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Фонематический слух</span>
+				</td>
+				<td>
+					<input type="radio" name="phonemic_hearing" value="1">норма
+					<input type="radio" name="phonemic_hearing" value="2">нарушен
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Фонематический восприятие</span>
+				</td>
+				<td>
+					<input type="radio" name="phonemic_perception" value="1">норма
+					<input type="radio" name="phonemic_perception" value="2">нарушен
+				</td>
+			</tr>
+			<tr>
+				<td>Структура слова и предложения</td>
+				<td>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>лекарство</span>
+								</td>
+								<td>
+									<input name="word1">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>сковорода</span>
+								</td>
+								<td>
+									<input name="word2">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>телевизор</span>
+								</td>
+								<td>
+									<input name="word3">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>библиотека</span>
+								</td>
+								<td>
+									<input name="word4">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>аквариум</span>
+								</td>
+								<td>
+									<input name="word5">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>клоун</span>
+								</td>
+								<td>
+									<input name="word6">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Птичка свила гнездышко в кустах</span>
+								</td>
+								<td>
+									<input name="word7" class = "all_width">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>Золотая рыбка плавает в аквариуме</span>
+								</td>
+								<td>
+									<input name="word8" class = "all_width">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Словарь</span>
+				</td>
+				<td>
+					<input type="radio" name="dict_size" value="1">соответствует возрасту
+					<input type="radio" name="dict_size" value="2">ограничен
+					<input type="radio" name="dict_size" value="3">резко ограничен
+					<br>
+					<span class="bold">Обобщяющие понятия:</span>
+					<table class="inputs_all_width">
+						<tbody>
+							<tr>
+								<td>
+									<span>лук, репа, морковь, капуста</span>
+								</td>
+								<td>
+									<input name="dict_generalizing_1">
+								</td>
+								<td>
+									<span>назвать посуду</span>
+								</td>
+								<td>
+									<input name="dict_generalizing_3">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>шкаф, стол, стул, диван</span>
+								</td>
+								<td>
+									<input name="dict_generalizing_2">
+								</td>
+								<td>
+									<span>назвать одежду</span>
+								</td>
+								<td>
+									<input name="dict_generalizing_4">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">слова антонимы:</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>широкий</span>
+								</td>
+								<td>
+									<input name="dict_antonyms_1">
+								</td>
+								<td>
+									<span>горячий</span>
+								</td>
+								<td>
+									<input name="dict_antonyms_2">
+								</td>
+								<td>
+									<span>глубокий</span>
+								</td>
+								<td>
+									<input name="dict_antonyms_3">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>большой</span>
+								</td>
+								<td>
+									<input name="dict_antonyms_4">
+								</td>
+								<td>
+									<span>высокий</span>
+								</td>
+								<td>
+									<input name="dict_antonyms_5">
+								</td>
+								<td>
+									<span>толстый</span>
+								</td>
+								<td>
+									<input name="dict_antonyms_6">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">названия детенышей животных</span>
+					<input name="dict_name_of_animals" class="all_width">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Грамматический слой</span>
+				</td>
+				<td>
+					<span class="bold">Изменение существительного по падежам:</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>кого ловит кошка?</span>
+								</td>
+								<td>
+									<input name="grammar_declination_1">
+								</td>
+								<td>
+									<span>кому подаришь книжку?</span>
+								</td>
+								<td>
+									<input name="grammar_declination_2">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>чем подстригают волосы?</span>
+								</td>
+								<td>
+									<input name="grammar_declination_3">
+								</td>
+								<td>
+									<span>с кем любишь играть?</span>
+								</td>
+								<td>
+									<input name="grammar_declination_4">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>в чем носят продукты?</span>
+								</td>
+								<td>
+									<input name="grammar_declination_5">
+								</td>
+								<td>
+									<span>из чего ты пьешь?</span>
+								</td>
+								<td>
+									<input name="grammar_declination_6">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">образование форм сущ. Р.п. ед. и мн. числа(чего нет?)</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>шарф</span>
+								</td>
+								<td>
+									<input name="grammar_formation_1">
+								</td>
+								<td>
+									<span>дома</span>
+								</td>
+								<td>
+									<input name="grammar_formation_2">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>книга</span>
+								</td>
+								<td>
+									<input name="grammar_formation_3">
+								</td>
+								<td>
+									<span>деревья</span>
+								</td>
+								<td>
+									<input name="grammar_formation_4">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">преобразование сущ.ед. числа во множ. и наоборот:</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>стул</span>
+								</td>
+								<td>
+									<input name="grammar_transformation_1">
+								</td>
+								<td>
+									<span>воробей</span>
+								</td>
+								<td>
+									<input name="grammar_transformation_2">
+								</td>
+								<td>
+									<span>цыплята</span>
+								</td>
+								<td>
+									<input name="grammar_transformation_3">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>картина</span>
+								</td>
+								<td>
+									<input name="grammar_transformation_4">
+								</td>
+								<td>
+									<span>глаз</span>
+								</td>
+								<td>
+									<input name="grammar_transformation_5">
+								</td>
+								<td>
+									<span>окна</span>
+								</td>
+								<td>
+									<input name="grammar_transformation_6">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">согласование сущ. с прилагательным</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>мяч - какой?</span>
+								</td>
+								<td>
+									<input name="grammar_matching_adjective_1">
+								</td>
+								<td>
+									<span>книга-?</span>
+								</td>
+								<td>
+									<input name="grammar_matching_adjective_2">
+								</td>
+								<td>
+									<span>яблоко-?</span>
+								</td>
+								<td>
+									<input name="grammar_matching_adjective_3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">согласование сущ. с числительным (сосчитай)</span>
+					<table class="inputs_all_width">
+						<thead>
+							<th></td>
+							<th>1</td>
+							<th>2</td>
+							<th>3</td>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>шар</span>
+								</td>
+								<td>
+									<input name="grammar_counting_1_1">
+								</td>
+								<td>
+									<input name="grammar_counting_1_2">
+								</td>
+								<td>
+									<input name="grammar_counting_1_3">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>ёлка</span>
+								</td>
+								<td>
+									<input name="grammar_counting_2_1">
+								</td>
+								<td>
+									<input name="grammar_counting_2_2">
+								</td>
+								<td>
+									<input name="grammar_counting_2_3">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>ведро</span>
+								</td>
+								<td>
+									<input name="grammar_counting_3_1">
+								</td>
+								<td>
+									<input name="grammar_counting_3_2">
+								</td>
+								<td>
+									<input name="grammar_counting_3_3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">употребление предлогов:</span>
+					<input name="grammar_using_prepositions" class = "all_width">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Словообразование</span>
+				</td>
+				<td>
+					<span class="bold">уменьшительно-ласкательные формы существительного</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>мяч</span>
+								</td>
+								<td>
+									<input name="word_formation_diminutive_1">
+								</td>
+								<td>
+									<span>кукла</span>
+								</td>
+								<td>
+									<input name="word_formation_diminutive_2">
+								</td>
+								<td>
+									<span>яблоко</span>
+								</td>
+								<td>
+									<input name="word_formation_diminutive_3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">образование качественных прилагательных</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>стол из дерева</span>
+								</td>
+								<td>
+									<input name="word_formation_qualitative_1">
+								</td>
+								<td>
+									<span>шуба из меха</span>
+								</td>
+								<td>
+									<input name="word_formation_qualitative_2">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">образование притяжательных прилагательных (чей?)</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<span>хвост волка</span>
+								</td>
+								<td>
+									<input name="word_formation_possessive_1">
+								</td>
+							<tr>
+							</tr>
+								<td>
+									<span>дупло белки</span>
+								</td>
+								<td>
+									<input name="word_formation_possessive_2">
+								</td>
+							<tr>
+							</tr>
+								<td>
+									<span>следы медведя</span>
+								</td>
+								<td>
+									<input name="word_formation_possessive_3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="bold">образование слов с помощю приставок:</span>
+					<input name="word_formation_prefixes" class = "all_width">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Связная речь</span>
+				</td>
+				<td>
+					<span class="bold">фраза:</span>
+					<input type="radio" name="speak_phrase" value="1">норма
+					<input type="radio" name="speak_phrase" value="2">морфологический аграмматизм
+					<input type="radio" name="speak_phrase" value="3">структурный аграмматизм
+					<br>
+					<span class="bold">составление предложения по сюжетной картинке:</span>
+					<br>
+					<input type="radio" name="speak_proposal" value="1">предметное перечисление
+					<input type="radio" name="speak_proposal" value="2">простое предложение
+					<input type="radio" name="speak_proposal" value="3">распространенное
+					<textarea name="speak_text_1" placeholder=""></textarea>
+					<span class="bold">составление рассказа по серии картинок:</span>
+					<textarea name="speak_text_2" placeholder=""></textarea>
+					<span class="bold">рассказ - описание</span>
+					<textarea name="speak_text_3" placeholder=""></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Состояние неречевых процессов</span>
+				</td>
+				<td>
+					<table class="inputs_all_width">
+						<tbody>
+							<tr>
+								<td>
+									<span>внимание</span>
+								</td>
+								<td>
+									<input name="state_non_peech_processes_1">
+								</td>
+							<tr>
+							</tr>
+								<td>
+									<span>память</span>
+								</td>
+								<td>
+									<input name="state_non_peech_processes_2">
+								</td>
+							<tr>
+							</tr>
+								<td>
+									<span>мышление</span>
+								</td>
+								<td>
+									<input name="state_non_peech_processes_3">
+								</td>
+							</tr>
+							</tr>
+								<td>
+									<span>восприятие</span>
+								</td>
+								<td>
+									<input name="state_non_peech_processes_4">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>Заключение логопеда</span>
+				</td>
+				<td>
+					<textarea name="conclusion" placeholder=""></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Дата начала занятий</td>
+				<td><input type="date_start" name="date"></td>
+			</tr>
+			<tr>
+				<td>Дата выпуска</td>
+				<td><input type="date_end" name="date"></td>
+			</tr>
+			<tr>
+				<td>
+					<span>Результат</span>
+				</td>
+				<td>
+					<textarea name="result" placeholder=""></textarea>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+	<button onclick="save()">Сохранить</button>
+	<script src="form.js"></script>
+</body>
+</html>

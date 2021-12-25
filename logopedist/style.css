@@ -1,0 +1,23 @@
+* {
+	line-height: 150%;
+}
+
+textarea {
+	width: 100%;
+}
+
+table {
+	width: 100%;
+}
+
+table .inputs_all_width input {
+	width: 100%;
+}
+
+.all_width {
+	width: 100%;
+}
+
+.bold {
+	font-weight: bold;
+}
